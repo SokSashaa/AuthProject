@@ -1,0 +1,55 @@
+.wrapper{
+    height: calc(100vh - 60px - 60px);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapperForm{
+    display: flex;
+    flex-direction: row;
+    height: 500px;
+    width: 1000px;
+    background-color: #57cc99;
+    border-radius:40px ;
+    padding: 20px;
+    flex-wrap: wrap;
+}
+
+.row{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 10px;
+}
+
+
+.row-span{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    justify-content: left;
+}
+
+input[type='text']{
+    height: 30px;
+    margin-top: 10px;
+}
+
+input[type='email']{
+    height: 30px;
+    margin-top: 10px;
+}
+
+input[type='password']{
+    height: 30px;
+    margin-top: 10px;
+}
+
+button[type='submit']{
+    height: 30px;
+    width: 120px;
+    border-radius: 15px;
+}
