@@ -7,6 +7,7 @@ import LogIn from "./Components/LogIn/LogIn";
 const App:FC =()=>{
 
     const [form,setForm] = useState(false)
+    const [theme, setTheme] = useState(true)
 
     return(
         <>

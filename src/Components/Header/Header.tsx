@@ -10,6 +10,7 @@ const Header:FC<HeaderProps> = ({setSelectedForm})=>{
         <div className={'header'}>
             <p onClick={()=>setSelectedForm(false)}>Log in</p>
             <p onClick={()=>setSelectedForm(true)}>Sign up</p>
+            <button>Тема</button>
         </div>
     )
 }
