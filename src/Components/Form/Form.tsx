@@ -56,13 +56,13 @@ const Form: FC = () => {
 
                 <div className={'row'}>
                     <p>Password</p>
-                    <input type={'password'} required={true} placeholder={'Password'} onChange={(event:any)=>{setInputPass(event.target.value)}}/>
+                    <input type={'password'} required={true} placeholder={'Password'} onChange={(event)=>{setInputPass(event.target.value)}}/>
                 </div>
 
                 <div className={'row'}>
                     <p>Confirm password</p>
                     <input type={'password'} required={true} placeholder={'Password'}
-                           onChange={(event: any) => setStateInputConfPass(event.target.value)}/>
+                           onChange={(event) => setStateInputConfPass(event.target.value)}/>
                     {!checkState() &&
                     <p id={"corPassword"}>Incorrect</p>
                     }
