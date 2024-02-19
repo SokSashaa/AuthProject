@@ -2,6 +2,7 @@ import './Form.css'
 import {FC} from "react";
 
 const Form: FC = () => {
+
     return (
         <div className={'wrapper'}>
             <form className={'wrapperForm'}>

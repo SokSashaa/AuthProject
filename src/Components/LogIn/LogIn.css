@@ -1,0 +1,27 @@
+.LogInForm {
+    height: 300px;
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #57cc99;
+    border-radius: 20px;
+    align-items: center;
+}
+
+.LogInDiv{
+    height: calc(100vh - 60px - 60px);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+.row{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}

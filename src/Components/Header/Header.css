@@ -11,3 +11,7 @@ p{
     margin: 0 30px;
     font-size: 20px;
 }
+
+p:hover{
+    text-decoration: underline;
+}

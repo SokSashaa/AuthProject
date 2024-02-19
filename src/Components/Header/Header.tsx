@@ -1,10 +1,15 @@
-import {FC} from "react";
+import {FC, SetStateAction} from "react";
 import './Header.css'
 
-const Header:FC = ()=>{
+type HeaderProps = {
+    setSelectedForm:React.Dispatch<SetStateAction<boolean>>
+}
+
+const Header:FC<HeaderProps> = ({setSelectedForm})=>{
     return(
         <div className={'header'}>
-            <p>Вход</p>
+            <p onClick={()=>setSelectedForm(false)}>Log in</p>
+            <p onClick={()=>setSelectedForm(true)}>Sign up</p>
         </div>
     )
 }
