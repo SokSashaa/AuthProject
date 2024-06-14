@@ -43,5 +43,5 @@ export class CreateUserDto {
     default:new Date()
   })
   @IsDate()
-  date_reg:Date
+  date_reg: Date
 }
