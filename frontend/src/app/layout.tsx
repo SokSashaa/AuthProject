@@ -19,7 +19,8 @@ export default function RootLayout({
   return (
     <html lang="en">
     <head>
-        <script src="https://www.google.com/recaptcha/enterprise.js" async defer></script>
+      {/*<script src="https://www.google.com/recaptcha/api.js" async defer></script>*/}
+
     </head>
       <body style={{height:'calc(108vh - 60px)'}} data-theme='dark'>
       <Header/>

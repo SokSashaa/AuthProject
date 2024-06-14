@@ -1,8 +1,9 @@
 'use client'
-import React, {FC} from "react";
+import React, {FC, useRef, useState} from "react";
 import {setCookie} from "nookies";
 import {Button, Checkbox, Form, Input, notification, Radio, Select} from "antd";
 import * as Api from '@/_api'
+import ReCAPTCHA from "react-google-recaptcha";
 
 const {Option} = Select;
 
@@ -19,31 +20,43 @@ type fullForm = {
 }
 
 const RegisterForm: FC = () => {
+
+    const [captcha,setCaptcha] = useState<boolean>(false)
+
     const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
 
     const onSubmit = async (values: fullForm) => {
         try {
-            const {pass, yo, rules, ...value} = {...values, date_reg: new Date()}
-            if (yo === 'ok') {
+            if(captcha){
+                const {pass, yo, rules, ...value} = {...values, date_reg: new Date()}
+                if (yo === 'ok') {
 
-                const {token} = await Api.auth.register(value);
+                    const {token} = await Api.auth.register(value);
 
-                notification.success({
-                    message: "Успешно!",
-                    description: "Переходим в админ-панель...",
-                    duration: 2,
-                });
+                    notification.success({
+                        message: "Успешно!",
+                        description: "Переходим в админ-панель...",
+                        duration: 2,
+                    });
 
-                setCookie(null, "_token", token, {
-                    path: "/",
-                });
+                    setCookie(null, "_token", token, {
+                        path: "/",
+                    });
 
-                location.href = "/dashboard";
-            } else notification.error({
-                message: "Ошибка",
-                description: "Вам нет 18 лет",
+                    location.href = "/dashboard";
+                } else notification.error({
+                    message: "Ошибка",
+                    description: "Вам нет 18 лет",
+                    duration: 2
+                })
+            }
+            else notification.error({
+                message:'Ошибка',
+                description: 'Не ввели капчу',
                 duration: 2
             })
+
+
 
         } catch (err) {
             notification.error({
@@ -54,8 +67,8 @@ const RegisterForm: FC = () => {
         }
     };
 
-    return (<>
 
+    return (<>
         <Form name="basic"
               labelCol={{
                   span: 10,
@@ -204,9 +217,8 @@ const RegisterForm: FC = () => {
                 <Checkbox/>
             </Form.Item>
             <Form.Item>
-                <div className="g-recaptcha" data-sitekey="6Le2T8ApAAAAAJouTV8iUA4--Q6WRczhOqJ_ohFA"
-                     data-action="signup">
-                </div>
+                <ReCAPTCHA sitekey={'6LdkscgpAAAAAM5BxDXADMUk2mV82p6faVeJN7Ko'}
+                           onChange={()=>setCaptcha(true)}/>
             </Form.Item>
             <Form.Item
                 wrapperCol={{

@@ -9,7 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@google-cloud/recaptcha-enterprise": "^5.7.0",
     "@types/axios": "^0.14.0",
+    "@types/react-google-recaptcha": "^2.1.9",
     "antd": "^5.15.3",
     "axios": "^1.6.8",
     "next": "^14.1.4",
@@ -17,6 +19,7 @@
     "nookies": "^2.5.2",
     "react": "^18",
     "react-dom": "^18",
+    "react-google-recaptcha": "^3.1.0",
     "sass": "^1.72.0",
     "scss": "^0.2.4"
   },
